@@ -5,7 +5,7 @@
 
   let isScrolled = $state(false);
   let isMobileMenuOpen = $state(false);
-
+ 
   onMount(() => {
     const handleScroll = () => {
       isScrolled = window.scrollY > 50;
