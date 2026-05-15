@@ -20,6 +20,9 @@
     <div class="space-y-40">
       {#each PROJECTS as project, i}
         {@const isEven = i % 2 === 0}
+        <!-- FIX: Create a Capitalized alias for the icon component -->
+        {@const ProjectIcon = project.icon}
+
         <div class="flex flex-col lg:flex-row gap-12 items-center {isEven ? '' : 'lg:flex-row-reverse'}">
           <!-- Visual -->
           <div class="flex-1 w-full relative group">
@@ -29,7 +32,8 @@
             ></div>
             <div class="relative overflow-hidden rounded-2xl glass border-white/5 aspect-video bg-white/5 flex items-center justify-center transform group-hover:scale-[1.02] transition-transform duration-500">
               <div class="text-[120px] opacity-10 group-hover:opacity-20 transition-opacity duration-500 transform group-hover:rotate-12 group-hover:scale-110">
-                <svelte:component this={project.icon} size={120} color={project.color} />
+                <!-- FIX: Use the alias directly instead of svelte:component -->
+                <ProjectIcon size={120} color={project.color} />
               </div>
               <div class="absolute inset-0 bg-gradient-to-t from-midnight/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
                 <p class="text-sm font-mono uppercase tracking-tighter text-stardust/60">
@@ -43,7 +47,8 @@
           <div class="flex-1 w-full space-y-6">
             <div class="space-y-4">
               <div class="flex items-center gap-2">
-                <svelte:component this={project.icon} class="text-white/40" size={18} />
+                <!-- FIX: Use the alias here as well -->
+                <ProjectIcon class="text-white/40" size={18} />
                 <h3 class="text-3xl md:text-5xl font-bold">{project.title}</h3>
               </div>
               <p class="text-xl text-stardust/70 font-light leading-relaxed">
