@@ -1,7 +1,6 @@
 <script lang="ts">
   import { PROJECTS } from '../constants/portfolio';
   import { ExternalLink, Code } from 'lucide-svelte';
-  import { cn } from '../lib/utils';
 </script>
 
 <section id="projects" class="py-32 px-4 md:px-8">
